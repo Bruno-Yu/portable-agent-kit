@@ -22,6 +22,8 @@ status: public-review
 - [[memory-architecture|Agent 記憶架構]]
 - [[recommended-skills|推薦 Skills]]
 - [[recommended-mcp|推薦 MCP]]
+- [[Codex-Index|Codex 索引]]
+- [[VS-Code-Index|VS Code 索引]]
 - [[HCL-Domino-Index|HCL Notes/Domino 索引]]
 
 ## 設計原則
@@ -41,6 +43,8 @@ status: public-review
 | `30-Skills` | 精選 Skill 與安全檢查 |
 | `40-MCP` | MCP 選型、設定與安全邊界 |
 | `50-Platforms` | Codex、Claude Code、Copilot、Cursor 對照 |
+| `55-Codex` | Codex CLI、Hooks、指令與使用案例 |
+| `58-VS-Code` | VS Code、GitHub Copilot 與開發環境設定 |
 | `60-HCL-Domino` | LotusScript、Formula、安全、版控、REST API |
 
 ## 授權與來源
