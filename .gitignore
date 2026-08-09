@@ -1,0 +1,14 @@
+.obsidian/
+.trash/
+.DS_Store
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.log
+*.local.md
+memory/private/
+user-profile.md
+PENDING.md
+.mcp.local.json

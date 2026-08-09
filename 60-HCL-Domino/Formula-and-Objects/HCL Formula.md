@@ -1,0 +1,65 @@
+
+## Domino URL
+
+* Host : DNS名稱 or Domino伺服器IP位址
+* Database : 資料庫位於Data底下的相對路徑
+* Domino Object : a database, view, document, form, navigator, agent
+* Action : ?OpenDatabase, ?OpenView, ?OpenView, ?openDocument, ?EditDocument...
+* Arguments : qualifiers of the action
+    * - ?OpenForm
+    * - ?OpenView&Count = 10 : 開啟View並顯示十筆
+    * - xxx.nsf?logout : 登出
+
+Ex:
+https://www.xred.com.tw/names.nsf?opendatabase
+https://www.xred.com.tw/names.nsf/person?openform
+https://www.xred.com.tw/names.nsf/people?openview
+https://host/dabase/0/unid?openDocumnet
+
+## Domino Xpages URL
+
+* Host : DNS名稱 or Domino伺服器IP位址
+* Database : 資料庫位於Data底下的相對路徑
+* PageName : Portal.xsp
+* ?documentId=unid
+* &action=openDocument/editDocument
+* 以上大小寫有差別
+
+http://host/Databse/PageName?documentId=unid&action=openDocument
+
+## 開發者常用指令介紹
+
+* 指令大小寫沒差，但是若server 裝在linux 系統則NSF名稱需區分大小寫。
+* show Server:查看server資訊。
+* show task:查看目前正在執行的Task 有哪些。
+* res ser : restart Server 的縮寫，可以重新啟動Domino Server .
+* q:停止server
+* tell http q /load http: 停用/啟用http
+* tell amgr q/load amgr:排程代理程式
+* tell amgr run “xxx.nsf” ‘agent’ :手動執行排程代理程式
+* Load compact xxx.nsf : 啟動資料庫壓縮(參數至help查詢 )
+* Load updall xxx.nsf :更新資料庫view 索引 (參數至help查詢 )
+
+### 字串
+
+* @Right
+* @RightBack
+* @Left
+* @LeftBack
+* @Trim
+* @ProperCase
+* @UpperCase
+* @LowerCase
+
+---
+
+### 陣列
+
+* @Elements:回傳陣列數量
+* @Explode : 把文字用分隔符號換成陣列
+* @Implode : 把陣列轉換為字串
+* @Unique
+* @Contains : 陣列是否包含字串元素
+* @Subset:取出陣列的前/後幾個元素
+* @Sort:排序
+* @Member:回傳字串在陣列中的第幾個元素
