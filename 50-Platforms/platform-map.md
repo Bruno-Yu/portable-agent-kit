@@ -10,6 +10,7 @@ status: public-review
 | 內容 | 可攜核心 | 平台適配 |
 |---|---|---|
 | 專案規則 | `AGENTS.md` | `CLAUDE.md`、Copilot instructions、Cursor rules |
+| 視覺設計系統 | `DESIGN.md` tokens + 設計理由 | Stitch、Figma、CSS／Tailwind token 的產生與同步方式不同 |
 | Skills | `SKILL.md` 概念與來源 | 安裝路徑、plugin 格式、marketplace 不同 |
 | MCP | server 定義與安全原則 | client 設定檔位置不同 |
 | Memory | Markdown 路由與分層 | 自動載入規則不同 |

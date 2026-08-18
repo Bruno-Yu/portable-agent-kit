@@ -1,4 +1,16 @@
 
+## 專案初始化
+
+在 Codex CLI 的專案目錄執行：
+
+```text
+/init
+```
+
+它會在目前目錄產生 `AGENTS.md` scaffold，作用類似其他 Coding Agent 的專案初始化命令。產生後仍需依 README、manifest、CI 與現有設定補上真實 build/test 指令、coding style、架構邊界與 Definition of Done；完整流程見 [[codex-project-bootstrap|Codex 專案初始化與接入指南]]。
+
+官方說明：[OpenAI Docs：Custom instructions with AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
+
 ``` bash
 # 對話控制
 

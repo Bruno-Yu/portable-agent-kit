@@ -11,6 +11,7 @@ status: public-review
 > Codex 功能與設定可能隨版本改變。執行安裝或設定指令前，請核對目前官方文件。
 
 - [[Codex 使用思維入門指南]]
+- [[codex-project-bootstrap|Codex 專案初始化與接入指南]]
 - [[Codex 指令]]
 - [[Codex Hooks 設定]]
 - [[Codex CLI 工作手冊]]
