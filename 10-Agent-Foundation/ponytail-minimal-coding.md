@@ -4,7 +4,7 @@ tags:
   - agent/principles
   - minimal-coding
 source: https://github.com/DietrichGebert/ponytail
-last_verified: 2026-08-09
+last_verified: 2026-08-19
 status: public-review
 ---
 
@@ -28,6 +28,12 @@ Ponytail 用「最懶但可靠的資深工程師」視角，阻止 Agent 為簡�
 ## 效能數字怎麼引用
 
 官方 benchmark 有特定模型、repo、任務與樣本限制。公開筆記應連到原始測試，不把 stars 或效能數字寫成永久事實。
+
+## 本 repo 的離線版本
+
+使用 `30-Skills/ponytail-minimal-coding/SKILL.md`。本機版本只保留決策階梯與不可犧牲的安全邊界，是純 Markdown，不包含上游 plugin 的 Node.js lifecycle hooks、scripts 或 Ponytail MCP。
+
+上游專案採 MIT License，但完整 plugin 具有可執行面；公司環境若只需要「少寫但可靠」的判斷方式，不應直接安裝整包 plugin。
 
 ## 來源
 
