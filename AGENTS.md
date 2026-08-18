@@ -6,16 +6,20 @@ Maintain a public, portable knowledge base for agent setup and HCL Notes/Domino 
 
 ## Core principles
 
-1. Think before coding: state assumptions and surface ambiguity.
-2. Prefer the smallest solution that satisfies the request.
-3. Make surgical changes and preserve surrounding conventions.
-4. Define success criteria and verify them before reporting completion.
-5. Use deterministic tools for deterministic checks.
-6. Keep always-loaded context small; load deeper references only when needed.
-7. Surface conflicting sources and prefer the newer, primary, verified source.
-8. Read immediate context before editing.
-9. Tests should encode why behavior matters.
-10. Report skipped checks and uncertainty explicitly.
+The first four rules are the Karpathy-inspired baseline. Rules 5–12 are community extensions for longer agent workflows.
+
+1. Think before coding: state assumptions, ambiguity, and tradeoffs instead of guessing.
+2. Prefer the smallest solution that satisfies the request; add nothing speculative.
+3. Make surgical changes, clean up only your own changes, and avoid unrelated refactors.
+4. Define verifiable success criteria and iterate until they are met.
+5. Use the model for judgment; use deterministic code and tools for routing, retries, transforms, and checks.
+6. Treat explicit token budgets as hard limits; avoid repeated rereads and summarize before context drifts.
+7. Surface conflicting sources or code patterns; choose the newer or better-tested source and explain why.
+8. Read exports, immediate callers, shared utilities, and adjacent tests before editing.
+9. Tests should encode why behavior matters and fail when the intended logic changes.
+10. After a significant step, state what changed, what was verified, and what remains.
+11. Match the codebase's conventions; flag a harmful convention instead of silently creating a competing pattern.
+12. Fail loud: report skipped checks, partial results, and uncertainty instead of claiming completion.
 
 ## Public-repository safety
 

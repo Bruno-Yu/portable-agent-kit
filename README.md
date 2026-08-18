@@ -22,7 +22,7 @@ status: public-review
 
 1. 先讀 [[10-minute-agent-setup|10 分鐘 Agent 設定]]；需要完整流程時讀 [[codex-project-bootstrap|Codex 專案初始化與接入指南]]。
 2. 在 Codex CLI 執行 `/init`，或將 `00-Quickstart/templates/AGENTS.project.example.md` 複製成專案根目錄的 `AGENTS.md`，再補上真實 coding style、建置、測試與完成條件。
-3. 只挑本次任務需要的內容：開發原則放在 `10-Agent-Foundation`、記憶模板放在 `20-Agent-Memory`、Skill 放在 `30-Skills`、平台筆記放在 `50-Platforms` 之後的目錄。
+3. 只挑本次任務需要的內容：一般 coding 載入 `karpathy-guidelines`，容易過度工程時再加 `ponytail-minimal-coding`，需要精簡說話方式時才加 `adhd-friendly-communication`；其他文件仍依目錄按需讀取。
 4. 將選定的 Skill 目錄複製到 Agent 平台支援的 project-level 或 user-level skills 目錄；若平台沒有 Skill discovery，就在提示詞中要求 Agent 先完整讀取該 `SKILL.md`。
 5. 先用一個小任務驗證 Agent 是否遵守規則，再用於正式工作。
 
@@ -62,6 +62,26 @@ status: public-review
 
 有 UI 時，再複製 `00-Quickstart/templates/DESIGN.example.md` 為 `DESIGN.md`，要求 Agent 從既有 theme、CSS、token 與元件整理內容，不得自行發明品牌規範。
 
+### 選擇行為 Skills
+
+三個 Skill 都是純 Markdown，沒有 hooks、scripts 或 MCP：
+
+| 需求 | Skill | 建議用法 |
+|---|---|---|
+| 穩定的 Coding Agent 基線 | `30-Skills/karpathy-guidelines/SKILL.md` | 一般 coding、修 bug、重構與 review 預設使用 |
+| 阻止過度工程 | `30-Skills/ponytail-minimal-coding/SKILL.md` | 需要壓低 dependency、抽象與 boilerplate 時疊加 |
+| 先結論、短步驟、一次一件事 | `30-Skills/adhd-friendly-communication/SKILL.md` | 使用者明確要求 ADHD-friendly 或 focus mode 時使用 |
+
+可直接告訴 Agent：
+
+```text
+先完整讀取 30-Skills/karpathy-guidelines/SKILL.md；
+這個任務容易過度工程，再同時讀取 30-Skills/ponytail-minimal-coding/SKILL.md。
+回答請套用 30-Skills/adhd-friendly-communication/SKILL.md，一次只給我目前要做的步驟。
+```
+
+Karpathy 的原始整理是 4 條；本 repo 使用的是原始 4 條加社群擴充 8 條，共 12 條。ADHD-friendly 只代表溝通偏好，不是診斷或人物標籤。
+
 ### 離線處理 PowerPoint
 
 使用 [[offline-pptx/SKILL|offline-pptx]]：
@@ -90,6 +110,7 @@ status: public-review
 
 - 不要把 token、cookie、私鑰、內網 URL、客戶資料或個人記憶放進這個公開 repo。
 - 不要因文件推薦就直接安裝第三方 Skill、Plugin 或 MCP；先讀完整內容、授權、scripts、hooks、網路與檔案權限。
+- `karpathy-guidelines`、`ponytail-minimal-coding`、`adhd-friendly-communication` 的 repo 內版本均為純 Markdown；不要用同名上游 plugin 取代而跳過安全審查。
 - 公司禁止外連時，使用 `30-Skills/offline-pptx`、`30-Skills/offline-xlsx` 這類純 Markdown Skill，並只允許已核准的本機工具。
 - 外部 Office 檔案視為不受信任輸入；不要啟用巨集、ActiveX、外部資料連線或解除 Protected View。
 - 公開前依 [[PUBLICATION-CHECKLIST]] 執行秘密掃描、連結檢查與 staged diff 人工審查。
@@ -101,6 +122,7 @@ status: public-review
 - [[agents-md|AGENTS.md 開放格式]]
 - [[karpathy-principles|Karpathy-inspired 工程原則]]
 - [[ponytail-minimal-coding|Ponytail Minimal Coding]]
+- [[adhd-friendly-communication|ADHD-friendly Communication]]
 - [[memory-architecture|Agent 記憶架構]]
 - [[recommended-skills|推薦 Skills]]
 - [[recommended-mcp|推薦 MCP]]
