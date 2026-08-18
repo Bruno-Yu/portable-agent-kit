@@ -20,8 +20,8 @@ status: public-review
 
 ### 如果你是使用者
 
-1. 先讀 [[10-minute-agent-setup|10 分鐘 Agent 設定]]。
-2. 將根目錄的 `AGENTS.md` 複製到要工作的專案根目錄，並補上該專案自己的建置、測試與完成條件。
+1. 先讀 [[10-minute-agent-setup|10 分鐘 Agent 設定]]；需要完整流程時讀 [[codex-project-bootstrap|Codex 專案初始化與接入指南]]。
+2. 在 Codex CLI 執行 `/init`，或將 `00-Quickstart/templates/AGENTS.project.example.md` 複製成專案根目錄的 `AGENTS.md`，再補上真實 coding style、建置、測試與完成條件。
 3. 只挑本次任務需要的內容：開發原則放在 `10-Agent-Foundation`、記憶模板放在 `20-Agent-Memory`、Skill 放在 `30-Skills`、平台筆記放在 `50-Platforms` 之後的目錄。
 4. 將選定的 Skill 目錄複製到 Agent 平台支援的 project-level 或 user-level skills 目錄；若平台沒有 Skill discovery，就在提示詞中要求 Agent 先完整讀取該 `SKILL.md`。
 5. 先用一個小任務驗證 Agent 是否遵守規則，再用於正式工作。
@@ -31,6 +31,7 @@ status: public-review
 ```text
 你的專案/
 ├── AGENTS.md
+├── DESIGN.md        # 有 UI／品牌需求時才加入
 └── 原本的專案檔案
 ```
 
@@ -51,12 +52,15 @@ status: public-review
 
 ### 建立新專案的 Agent 規則
 
-複製 `AGENTS.md` 到新專案，再給 Agent：
+在 Codex CLI 執行 `/init`，或複製 `00-Quickstart/templates/AGENTS.project.example.md`，再給 Agent：
 
 ```text
-先完整讀取 AGENTS.md。請加入這個專案專屬的建置、測試與完成條件；
-保留既有核心原則，不要加入目前用不到的工具或流程。
+先完整讀取 AGENTS.md，再從 README、manifest、lockfile、CI、linter 與測試設定
+補上這個專案真實的 setup、dev、build、lint、typecheck、test、coding style 與完成條件。
+只修改文件，不安裝套件、不執行 deploy、不猜測找不到的指令。
 ```
+
+有 UI 時，再複製 `00-Quickstart/templates/DESIGN.example.md` 為 `DESIGN.md`，要求 Agent 從既有 theme、CSS、token 與元件整理內容，不得自行發明品牌規範。
 
 ### 離線處理 PowerPoint
 
@@ -93,6 +97,8 @@ status: public-review
 ## 從這裡開始
 
 - [[10-minute-agent-setup|10 分鐘 Agent 設定]]
+- [[codex-project-bootstrap|Codex 專案初始化與接入指南]]
+- [[agents-md|AGENTS.md 開放格式]]
 - [[karpathy-principles|Karpathy-inspired 工程原則]]
 - [[ponytail-minimal-coding|Ponytail Minimal Coding]]
 - [[memory-architecture|Agent 記憶架構]]
