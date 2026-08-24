@@ -28,6 +28,23 @@ The first four rules are the Karpathy-inspired baseline. Rules 5–12 are commun
 - Do not add screenshots unless their provenance and visible data have been reviewed.
 - Run Gitleaks and inspect the staged diff before every publication batch.
 
+## Company HCL/DXL routing
+
+When the user wants to use this kit with a company HCL Notes/Domino or DXL project:
+
+1. Read `00-Quickstart/codex-company-dxl-start.md` and use
+   `00-Quickstart/templates/AGENTS.company-dxl.example.md` as the project-root
+   bootstrap.
+2. Keep company source, exports, reports, configuration, hostnames, replica IDs,
+   credentials, and customer data outside this public repository.
+3. Treat DXL/ODP exports as untrusted, read-only input until the project explicitly
+   documents that round-trip import has been validated.
+4. Do not import, synchronize, compile, sign, deploy, install tools, enable MCP,
+   or use network access unless the user separately authorizes that exact action
+   and company policy permits it.
+5. Start with inventory and analysis in a read-only Codex profile. Do not inspect
+   sibling projects or paths outside the one project named by the user.
+
 ## Content conventions
 
 - Use Traditional Chinese for explanatory notes unless preserving an English API name.

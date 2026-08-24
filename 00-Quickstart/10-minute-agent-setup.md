@@ -8,9 +8,14 @@ status: public-review
 
 # 10 分鐘 Agent 設定
 
+> [!warning] 公司電腦先設安全邊界
+> 開始前先套用 [[codex-company-safety|Codex 公司電腦防誤刪設定]]。預設用唯讀 profile；`AGENTS.md` 與 Skill 不是 OS sandbox，不能單獨阻止 Agent 修改或刪除檔案。
+
 ## 1. 放入共用規則
 
 Codex CLI 可先在專案根目錄執行 `/init`，再依 [[codex-project-bootstrap|Codex 專案初始化與接入指南]] 補齊。沒有 CLI 時，將 `00-Quickstart/templates/AGENTS.project.example.md` 複製成新專案的 `AGENTS.md`。
+
+若目標是公司 HCL Notes/Domino DXL 排查，不必先做完整初始化；直接依 [[codex-company-dxl-start|公司 DXL 專案接入 Codex]] 複製最小安全範本，再以唯讀模式驗證即可。
 
 不要直接保留 scaffold 的猜測值。從 README、manifest、lockfile、Makefile／Taskfile、CI、linter 與測試設定填入真實內容。
 

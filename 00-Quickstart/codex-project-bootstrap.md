@@ -4,7 +4,7 @@ tags:
   - agent/quickstart
   - codex
   - setup
-last_verified: 2026-08-18
+last_verified: 2026-08-20
 status: public-review
 ---
 
@@ -102,19 +102,26 @@ UI、簡報、品牌頁、dashboard 或需要長期保持視覺一致時加入�
 
 ## 選用：公司離線 Codex 設定
 
-只有在公司政策允許、repo 已被信任且確實需要 project override 時，才建立 `.codex/config.toml`：
+公司電腦先依 [[codex-company-safety|Codex 公司電腦防誤刪設定]] 安裝唯讀 `company-safe` profile。只有在公司政策允許、repo 已被信任、重要內容均可還原且確實需要 project override 時，才建立 `.codex/config.toml`：
 
 ```toml
-approval_policy = "on-request"
+approval_policy = "untrusted"
+approvals_reviewer = "user"
 sandbox_mode = "workspace-write"
 web_search = "disabled"
+allow_login_shell = false
+
+[sandbox_workspace_write]
+network_access = false
+exclude_slash_tmp = true
+exclude_tmpdir_env_var = true
 
 [features]
 apps = false
 remote_plugin = false
 ```
 
-不要把 token、MCP credentials、內網位址或個人偏好 commit 進專案設定。組織的 managed configuration 與 `requirements.toml` 優先於 repo 設定。
+`workspace-write` 仍可修改或刪除 workspace 內檔案，只能阻止寫到 workspace 外；請在乾淨 branch、worktree 或可還原副本操作。不要把 token、MCP credentials、內網位址或個人偏好 commit 進專案設定。組織的 managed configuration 與 `requirements.toml` 優先於 repo 設定；需要禁止使用者繞過時必須由 IT 管理。
 
 ## 驗證接入
 
@@ -129,4 +136,6 @@ remote_plugin = false
 - [OpenAI Docs：Custom instructions with AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
 - [OpenAI Docs：Codex best practices](https://learn.chatgpt.com/guides/best-practices)
 - [OpenAI Docs：Config basics](https://learn.chatgpt.com/docs/config-file/config-basic)
+- [OpenAI Docs：Agent approvals & security](https://learn.chatgpt.com/docs/agent-approvals-security)
+- [OpenAI Docs：Managed configuration](https://learn.chatgpt.com/docs/enterprise/managed-configuration)
 - [Google Labs：DESIGN.md specification](https://github.com/google-labs-code/design.md/blob/main/docs/spec.md)

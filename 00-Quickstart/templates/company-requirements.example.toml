@@ -1,0 +1,30 @@
+# Admin-enforced Codex policy example. An administrator must review and deploy it
+# as requirements.toml; copying it into a repository does not enforce anything.
+# Verified against OpenAI Docs on 2026-08-20.
+
+# Do not permit approval-free or full-host-access modes.
+allowed_approval_policies = ["untrusted"]
+allowed_approvals_reviewers = ["user"]
+allowed_sandbox_modes = ["read-only", "workspace-write"]
+
+# An empty list effectively permits only the always-available disabled mode.
+allowed_web_search_modes = []
+
+allow_login_shell = false
+allow_remote_control = false
+allow_appshots = false
+allow_managed_hooks_only = true
+
+# Disable external capability surfaces that the command sandbox does not cover.
+[features]
+apps = false
+plugins = false
+remote_plugin = false
+browser_use = false
+browser_use_external = false
+browser_use_full_cdp_access = false
+computer_use = false
+in_app_browser = false
+
+# A present but empty approved list disables all MCP servers.
+[mcp_servers]

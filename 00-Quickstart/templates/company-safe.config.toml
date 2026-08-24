@@ -1,0 +1,16 @@
+#:schema https://developers.openai.com/codex/config-schema.json
+
+# Copy to $CODEX_HOME/company-safe.config.toml (normally ~/.codex/) and start:
+# codex -C /path/to/one/repo --profile company-safe
+#
+# This profile is intentionally read-only. It is the safest default for a
+# company computer, unfamiliar repository, review, planning, and investigation.
+approval_policy = "untrusted"
+approvals_reviewer = "user"
+sandbox_mode = "read-only"
+web_search = "disabled"
+allow_login_shell = false
+
+[features]
+apps = false
+remote_plugin = false

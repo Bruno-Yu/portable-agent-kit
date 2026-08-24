@@ -1,0 +1,19 @@
+#:schema https://developers.openai.com/codex/config-schema.json
+
+# Conservative project defaults for this public knowledge-base repository.
+# Project config is loaded only after the repository is trusted and can still be
+# overridden by a user or administrator. See 00-Quickstart/codex-company-safety.md.
+approval_policy = "untrusted"
+approvals_reviewer = "user"
+sandbox_mode = "workspace-write"
+web_search = "disabled"
+allow_login_shell = false
+
+[sandbox_workspace_write]
+network_access = false
+exclude_slash_tmp = true
+exclude_tmpdir_env_var = true
+
+[features]
+apps = false
+remote_plugin = false

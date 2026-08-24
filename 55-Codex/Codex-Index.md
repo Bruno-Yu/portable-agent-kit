@@ -12,6 +12,7 @@ status: public-review
 
 - [[Codex 使用思維入門指南]]
 - [[codex-project-bootstrap|Codex 專案初始化與接入指南]]
+- [[codex-company-safety|Codex 公司電腦防誤刪設定]]
 - [[Codex 指令]]
 - [[Codex Hooks 設定]]
 - [[Codex CLI 工作手冊]]

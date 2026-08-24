@@ -1,5 +1,5 @@
 
-- 公司下載路徑 : \\f12aoaf01\usrpub\Install\Notes12\R12.0.2_FP7
+- 公司下載路徑：`<internal-download-path>`（僅保留去識別化 placeholder）
 
 A running Domino server with the Domino REST API installed.
 beginning with verifying that your system meets the required specifications,

@@ -1,0 +1,21 @@
+#:schema https://developers.openai.com/codex/config-schema.json
+
+# Copy to $CODEX_HOME/company-edit.config.toml (normally ~/.codex/) and start:
+# codex -C /path/to/one/repo --profile company-edit
+#
+# This permits writes only inside the active workspace. Files in that workspace
+# can still be changed or deleted, so use a clean Git worktree or disposable copy.
+approval_policy = "untrusted"
+approvals_reviewer = "user"
+sandbox_mode = "workspace-write"
+web_search = "disabled"
+allow_login_shell = false
+
+[sandbox_workspace_write]
+network_access = false
+exclude_slash_tmp = true
+exclude_tmpdir_env_var = true
+
+[features]
+apps = false
+remote_plugin = false
