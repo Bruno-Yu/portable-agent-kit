@@ -38,10 +38,11 @@ Codex CLI 可先在專案根目錄執行 `/init`，再依 [[codex-project-bootst
 
 - 一般開發：[[karpathy-principles]]，或載入 `30-Skills/karpathy-guidelines/SKILL.md`
 - 容易過度工程的任務：再加入 [[ponytail-minimal-coding]]，或載入 `30-Skills/ponytail-minimal-coding/SKILL.md`
-- 需要先講結論、短步驟與一次一件事：載入 [[adhd-friendly-communication]] 對應的 `30-Skills/adhd-friendly-communication/SKILL.md`
+- 需要嚴格 action-first、短步驟與跨 turn 顯示進度：明確載入 [[i-have-adhd/SKILL|i-have-adhd]]；要結束時說 `stop adhd mode` 或 `normal mode`
+- 只需要較輕量的先講結論與一次一件事：載入 [[adhd-friendly-communication]] 對應的 `30-Skills/adhd-friendly-communication/SKILL.md`
 - 高風險或複雜任務：要求先列成功標準、風險與驗證方法
 
-Karpathy 原始整理是 4 條，本 repo 採用的是原始 4 條加上社群擴充 8 條的完整 12 條版本。ADHD-friendly 是使用者明確選擇的溝通格式，不應用來推測或記錄健康狀況。
+Karpathy 原始整理是 4 條，本 repo 採用的是原始 4 條加上社群擴充 8 條的完整 12 條版本。兩個 ADHD-friendly Skill 都是使用者選擇的溝通格式，不應用來推測或記錄健康狀況；`i-have-adhd` 預設只能顯式啟用。
 
 ## 5. 建立最小記憶
 

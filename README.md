@@ -33,7 +33,7 @@ status: public
 
 1. 先讀 [[10-minute-agent-setup|10 分鐘 Agent 設定]]；需要完整流程時讀 [[codex-project-bootstrap|Codex 專案初始化與接入指南]]。
 2. 在 Codex CLI 執行 `/init`，或將 `00-Quickstart/templates/AGENTS.project.example.md` 複製成專案根目錄的 `AGENTS.md`，再補上真實 coding style、建置、測試與完成條件。
-3. 只挑本次任務需要的內容：一般 coding 載入 `karpathy-guidelines`，容易過度工程時再加 `ponytail-minimal-coding`，需要精簡說話方式時才加 `adhd-friendly-communication`；其他文件仍依目錄按需讀取。
+3. 只挑本次任務需要的內容：一般 coding 載入 `karpathy-guidelines`，容易過度工程時再加 `ponytail-minimal-coding`；需要嚴格、顯式啟用的 action-first 輸出時用 `i-have-adhd`，較輕量的精簡說話方式可用 `adhd-friendly-communication`。其他文件仍依目錄按需讀取。
 4. 將選定的 Skill 目錄複製到 Agent 平台支援的 project-level 或 user-level skills 目錄；若平台沒有 Skill discovery，就在提示詞中要求 Agent 先完整讀取該 `SKILL.md`。
 5. 先用一個小任務驗證 Agent 是否遵守規則，再用於正式工作。
 
@@ -154,12 +154,13 @@ DXL source of truth 與禁止事項。只做唯讀盤點，不建立或修改檔
 
 ### 選擇行為 Skills
 
-三個 Skill 都是純 Markdown，沒有 hooks、scripts 或 MCP：
+四個 Skill 都沒有 hooks、scripts 或 MCP；`i-have-adhd` 另外包含非執行的 Codex UI metadata 與 MIT License：
 
 | 需求 | Skill | 建議用法 |
 |---|---|---|
 | 穩定的 Coding Agent 基線 | `30-Skills/karpathy-guidelines/SKILL.md` | 一般 coding、修 bug、重構與 review 預設使用 |
 | 阻止過度工程 | `30-Skills/ponytail-minimal-coding/SKILL.md` | 需要壓低 dependency、抽象與 boilerplate 時疊加 |
+| 嚴格 action-first 模式 | `30-Skills/i-have-adhd/SKILL.md` | 明確執行 `$i-have-adhd`；持續到使用者要求停止 |
 | 先結論、短步驟、一次一件事 | `30-Skills/adhd-friendly-communication/SKILL.md` | 使用者明確要求 ADHD-friendly 或 focus mode 時使用 |
 
 可直接告訴 Agent：
@@ -170,7 +171,13 @@ DXL source of truth 與禁止事項。只做唯讀盤點，不建立或修改檔
 回答請套用 30-Skills/adhd-friendly-communication/SKILL.md，一次只給我目前要做的步驟。
 ```
 
-Karpathy 的原始整理是 4 條；本 repo 使用的是原始 4 條加社群擴充 8 條，共 12 條。ADHD-friendly 只代表溝通偏好，不是診斷或人物標籤。
+`i-have-adhd` 的 Codex 用法：
+
+```text
+$i-have-adhd 請幫我完成目前任務。
+```
+
+它採顯式啟用，不會因 Agent 猜測而自動套用；要結束時說 `stop adhd mode` 或 `normal mode`。Karpathy 的原始整理是 4 條；本 repo 使用的是原始 4 條加社群擴充 8 條，共 12 條。ADHD-friendly 只代表溝通偏好，不是診斷或人物標籤。
 
 ### 離線處理 PowerPoint
 
@@ -201,7 +208,7 @@ Karpathy 的原始整理是 4 條；本 repo 使用的是原始 4 條加社群�
 - 公司電腦先讀 [[codex-company-safety|Codex 公司電腦防誤刪設定]]；`AGENTS.md`、prompt 與 Skill 不是 sandbox，不能單獨防止誤刪。
 - 不要把 token、cookie、私鑰、內網 URL、客戶資料或個人記憶放進這個公開 repo。
 - 不要因文件推薦就直接安裝第三方 Skill、Plugin 或 MCP；先讀完整內容、授權、scripts、hooks、網路與檔案權限。
-- `karpathy-guidelines`、`ponytail-minimal-coding`、`adhd-friendly-communication` 的 repo 內版本均為純 Markdown；不要用同名上游 plugin 取代而跳過安全審查。
+- `karpathy-guidelines`、`ponytail-minimal-coding`、`adhd-friendly-communication` 是 repo 內純 Markdown 版本；`i-have-adhd` 只 vendoring 上游 `SKILL.md`、`agents/openai.yaml` 與 MIT License，不包含上游 hooks、scripts、extensions 或 plugin metadata。
 - 公司禁止外連時，使用 `30-Skills/offline-pptx`、`30-Skills/offline-xlsx` 這類純 Markdown Skill，並只允許已核准的本機工具。
 - 外部 Office 檔案視為不受信任輸入；不要啟用巨集、ActiveX、外部資料連線或解除 Protected View。
 - 公開前依 [[PUBLICATION-CHECKLIST]] 執行秘密掃描、連結檢查與 staged diff 人工審查。
@@ -215,6 +222,7 @@ Karpathy 的原始整理是 4 條；本 repo 使用的是原始 4 條加社群�
 - [[agents-md|AGENTS.md 開放格式]]
 - [[karpathy-principles|Karpathy-inspired 工程原則]]
 - [[ponytail-minimal-coding|Ponytail Minimal Coding]]
+- [[i-have-adhd/SKILL|I Have ADHD]]
 - [[adhd-friendly-communication|ADHD-friendly Communication]]
 - [[memory-architecture|Agent 記憶架構]]
 - [[recommended-skills|推薦 Skills]]

@@ -2,7 +2,7 @@
 title: Recommended Agent Skills
 tags:
   - agent/skills
-last_verified: 2026-08-19
+last_verified: 2026-08-25
 status: public-review
 ---
 
@@ -12,15 +12,16 @@ status: public-review
 
 ## Repo 內建行為 Skills
 
-這三個版本只包含 Markdown 文件，不含 scripts、hooks、MCP、套件安裝或外部資料呼叫：
+這四個版本不含 scripts、hooks、MCP、套件安裝或外部資料呼叫；`i-have-adhd` 另附非執行的 Codex UI metadata 與 MIT License：
 
 | 用途 | Skill | 何時使用 |
 |---|---|---|
 | Coding Agent 基線 | [[karpathy-guidelines/SKILL\|karpathy-guidelines]] | 寫 code、修 bug、重構與 review；原始 4 條加社群擴充 8 條 |
 | 防過度工程 | [[ponytail-minimal-coding/SKILL\|ponytail-minimal-coding]] | 容易新增套件、抽象或 boilerplate 的 coding task |
+| 嚴格 action-first 輸出 | [[i-have-adhd/SKILL\|i-have-adhd]] | 使用者明確執行 `$i-have-adhd`；跨 turn 維持短步驟與可見進度，直到要求停止 |
 | 精簡溝通 | [[adhd-friendly-communication/SKILL\|adhd-friendly-communication]] | 使用者明確要求 ADHD-friendly、focus mode、短步驟或一次一件事 |
 
-它們可以逐次明確載入，也可以把需要長期套用的工程原則摘要進專案 `AGENTS.md`。不要把個人健康資訊 commit 到公開設定。
+`i-have-adhd` 由 `agents/openai.yaml` 設為禁止隱式觸發；其他 Skill 可依描述載入。可以把需要長期套用的工程原則摘要進專案 `AGENTS.md`，但不要把個人健康資訊 commit 到公開設定。
 
 ## 外部候選
 
@@ -52,6 +53,13 @@ status: public-review
 - `DietrichGebert/ponytail` 採 MIT License，但完整 repo 包含 Node.js lifecycle hooks、scripts、plugin metadata 與 MCP。公司環境只收錄自行審閱過的純 Markdown 適配，不安裝上游執行面。
 - `pat-eason/adhd-mode` Gist 確實是精簡說話方式，但未標示明確授權，因此不複製原文；本 repo 的版本獨立撰寫。
 - `UditAkhourii/adhd` 採 MIT License，但它是多框架創意發散工具，不是本次要找的 speaking-style Skill。Standalone `SKILL.md` 可提示詞運作；CLI／library 則使用 Node.js、Agent SDK 與多次模型呼叫。本 repo 不因名稱相同就混合兩種用途。
+
+2026-08-25 檢查 [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) commit `b42a45a068e080294924bfba19a7a2e8944c48ff`：
+
+- 上游採 MIT License；本 repo 保留 `LICENSE` 與原始 Codex metadata。
+- `skills/i-have-adhd/SKILL.md` 本身沒有 scripts、hooks、MCP、網路或檔案系統操作。
+- 上游完整 repo 另有 always-on hooks、extensions、plugin metadata、安裝與測試 scripts；公司安全版本全部不收錄。
+- 本 repo 只 vendoring `SKILL.md`、`agents/openai.yaml` 與 `LICENSE`，並保留顯式啟用政策；使用 `$i-have-adhd` 開啟，說 `stop adhd mode` 或 `normal mode` 結束。
 
 ### 網路候選審查
 
