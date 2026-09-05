@@ -23,9 +23,12 @@ status: public
 | 一般新專案 | `AGENTS.project.example.md`，有 UI 才加 `DESIGN.example.md` | 公司 DXL 規則、全部 Skills、MCP |
 | 公司電腦安全預設 | `company-safe.config.toml`；需寫入時才另用 `company-edit.config.toml` | DXL 規則、repo 的 `.codex/config.toml` |
 | 公司 DXL 排查 | 公司安全 profile + `AGENTS.company-dxl.example.md` | Skills、hooks、MCP、Plugin、自動 import |
+| VS Code Copilot／HCL R12 規範初始化 | `58-VS-Code/hcl-notes-r12-copilot-toolkit` 的六份範本與 SETUP.md | Codex profile、MCP、安裝腳本、自動匯入 |
 | 完整知識庫 | 保留本 repo 作唯讀參考，按任務讀一份相關文件 | 不要把整個 repo 塞入 context |
 
 本 repo 不需要傳統安裝。將需要的 Markdown 或 config 範本複製到正確層級即可；不要整包覆蓋公司既有 Codex 設定。
+
+Copilot 使用者請從 [HCL R12 Copilot Setup Toolkit](58-VS-Code/hcl-notes-r12-copilot-toolkit/README.md) 開始；範本可獨立下載使用，既有專案先盤點再合併。
 
 ## 一分鐘使用方式
 

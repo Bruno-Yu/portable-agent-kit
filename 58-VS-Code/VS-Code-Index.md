@@ -14,6 +14,7 @@ status: public-review
 - [[VS Code 常用快捷鍵]]
 - [[VS Code Settings]]
 - [[VS Code 1.119 + GitHub Copilot 完整新手教學]]
+- [[hcl-notes-r12-copilot-toolkit/README|HCL R12 Copilot Setup Toolkit]]
 - [[Copilot]]
 - [[Copilot 企業方案 & 計費]]
 - [[VSCode 安裝 DotNet]]
